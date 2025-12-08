@@ -140,6 +140,7 @@ body {
   width: 100%;
   padding: var(--spacing-lg);
   text-align: center;
+  margin-top: 180px;
 }
 
 /* Typography */

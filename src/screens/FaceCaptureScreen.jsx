@@ -113,7 +113,7 @@ const FaceCaptureScreen = () => {
     <div
       className="screen-container"
       style={{
-        backgroundImage: "url(/images/common_bg.png)",
+        backgroundImage: "url(/images/bg.png)",
         backgroundColor: "#0f172a",
       }}
     >
@@ -215,9 +215,18 @@ const FaceCaptureScreen = () => {
                 color: "white",
                 fontFamily: "var(--font-family)",
                 fontWeight: "600",
+                animation: "fadeInOut 2s ease-in-out infinite",
               }}
             >
-              Processing...
+              <style>
+                {`
+                  @keyframes fadeInOut {
+                    0%, 100% { opacity: 0.3; }
+                    50% { opacity: 1; }
+                  }
+                `}
+              </style>
+              Magic happening...
             </div>
           )}
         </div>

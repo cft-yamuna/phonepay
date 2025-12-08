@@ -51,7 +51,7 @@ const OutputScreen = () => {
     <div
       className="screen-container"
       style={{
-        backgroundImage: "url(/images/common_bg.png)",
+        backgroundImage: "url(/images/bg.png)",
         backgroundColor: "#0f172a",
       }}
     >
@@ -65,7 +65,7 @@ const OutputScreen = () => {
             width: "100%",
             height: "100%",
             paddingTop: "123px",
-            marginTop: "400px",
+            marginTop: "230px",
           }}
         >
           {/* Print Button */}
@@ -75,7 +75,7 @@ const OutputScreen = () => {
          width: "277px",
     height: "103px",
     position: "absolute",
-    marginTop:" 1120px",
+    marginTop:" 1051px",
               fontSize: "80px",
               fontWeight: "600",
               backgroundImage: "url(/images/printbg.png)",
@@ -102,8 +102,8 @@ const OutputScreen = () => {
           {/* Output Image with Background */}
           <div
             style={{
-              width: "804px",
-              height: "1200px",
+              width: "750px",
+              height: "1130px",
               backgroundImage: "url(/images/output_bg.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
@@ -117,8 +117,8 @@ const OutputScreen = () => {
               src={outputImageUrl}
               alt="Transformed"
               style={{
-                width: "690px",
-                height: "1101px",
+                width: "662px",
+                height: "1029px",
                 display: "block",
                 objectFit: "cover",
                 borderRadius:"113px"

@@ -107,6 +107,14 @@ const LoadingScreen = () => {
               </div>
 
               <div className="text-center">
+                <style>
+                  {`
+                    @keyframes fadeInOut {
+                      0%, 100% { opacity: 0.3; }
+                      50% { opacity: 1; }
+                    }
+                  `}
+                </style>
                 <h2
                   className="h2"
                   style={{
@@ -114,9 +122,10 @@ const LoadingScreen = () => {
                     fontFamily: "var(--font-family)",
                     fontSize: "40px",
                     textTransform: "uppercase",
+                    animation: "fadeInOut 2s ease-in-out infinite",
                   }}
                 >
-                  Processing...
+                  Magic happening...
                 </h2>
                 <p
                   className="p"

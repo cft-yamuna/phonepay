@@ -139,7 +139,7 @@ const CharacterSelectionScreen = () => {
                 cursor: "pointer",
                 transition: "transform 0.2s ease",
                 border: selectedCharacter?.id === characters[currentIndex]?.id
-                  ? "4px solid #4CAF50"
+                  ? ""
                   : "4px solid transparent",
                 borderRadius: "8px",
                 padding: "8px",
@@ -156,7 +156,7 @@ const CharacterSelectionScreen = () => {
                 alt={characters[currentIndex].name}
                 style={{
                   width: "600px",
-                  height: "700px",
+                  height: "950px",
                   objectFit: "contain",
                   display: "block",
                 }}
@@ -203,14 +203,14 @@ const CharacterSelectionScreen = () => {
             onClick={handleContinue}
             style={{
               position: "absolute",
-              bottom: "-48%",
+              bottom: "-200px",
               left: "50%",
               transform: "translateX(-50%)",
-              width: "799px",
-              height: "380px",
+              width: "411.58px",
+              height: "157.88px",
               fontSize: "75px",
               fontWeight: "600",
-              backgroundImage: "url(/images/continuebg.png)",
+              backgroundImage: "url(/images/next.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundColor: "transparent",
