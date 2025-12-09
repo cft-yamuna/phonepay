@@ -27,7 +27,7 @@ const CharacterSelectionScreen = () => {
     const chars = [];
     const genderPath = gender.toLowerCase();
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 6; i++) {
       const num = i.toString().padStart(2, "0");
       const filename = `${genderPath}${num}.png`;
 
