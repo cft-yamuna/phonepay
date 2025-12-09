@@ -19,32 +19,79 @@ const OutputScreen = () => {
   };
 
   const handlePrint = () => {
-    // Create a new window with only the image
-    const printWindow = window.open("", "_blank");
-    printWindow.document.write(`
+    // Create a hidden iframe for printing without opening a new tab
+    const printFrame = document.createElement("iframe");
+    printFrame.style.position = "absolute";
+    printFrame.style.top = "-9999px";
+    printFrame.style.left = "-9999px";
+    printFrame.style.width = "0";
+    printFrame.style.height = "0";
+    document.body.appendChild(printFrame);
+
+    const printDocument = printFrame.contentDocument || printFrame.contentWindow.document;
+    printDocument.open();
+    printDocument.write(`
       <html>
         <head>
           <title>Print Image</title>
           <style>
-            body {
+            @page {
+              size: auto;
+              margin: 0;
+            }
+            * {
               margin: 0;
               padding: 0;
+              box-sizing: border-box;
+            }
+            html, body {
+              width: 100%;
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+            body {
               display: flex;
               justify-content: center;
               align-items: center;
             }
             img {
               max-width: 100%;
+              max-height: 100vh;
+              width: auto;
               height: auto;
+              object-fit: contain;
+              page-break-after: avoid;
+              page-break-inside: avoid;
             }
           </style>
         </head>
         <body>
-          <img src="${outputImageUrl}" onload="window.print(); window.close();" />
+          <img src="${outputImageUrl}" />
         </body>
       </html>
     `);
-    printWindow.document.close();
+    printDocument.close();
+
+    // Wait for image to load then print
+    const img = printDocument.querySelector("img");
+    img.onload = () => {
+      printFrame.contentWindow.focus();
+      printFrame.contentWindow.print();
+      // Remove iframe after printing
+      setTimeout(() => {
+        document.body.removeChild(printFrame);
+      }, 1000);
+    };
+
+    // If image is already cached/loaded
+    if (img.complete) {
+      printFrame.contentWindow.focus();
+      printFrame.contentWindow.print();
+      setTimeout(() => {
+        document.body.removeChild(printFrame);
+      }, 1000);
+    }
   };
 
   return (
